@@ -1,10 +1,10 @@
-//mod _iprb; // done
-//mod _subs; // done
-//mod _prim;
-mod _mrna;
+//mod _iprb; // solved
+//mod _subs; // solved
+//mod _prim; // solved
+//mod _mrna; // solved
 
 fn main() {
-	println!("{}", _mrna::infer_mRNA(""));
+	
 }
 
 // Problem - enumerate lexicographically
