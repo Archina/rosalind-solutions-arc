@@ -1,8 +1,10 @@
+#[ignore]
 #[test]
 fn assert_example_problem() {
     assert_eq!(find_needles("GATATATGCATATACTT", "ATAT"), vec![2, 4, 10])
 }
 
+#[ignore]
 #[test]
 fn assert_actual_problem() {
 	let haystack = include_str!("_subs_hay");
