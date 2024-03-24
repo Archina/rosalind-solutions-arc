@@ -1,15 +1,23 @@
+#[ignore]
 #[test]
 fn assert_example_problem() {
-	assert_eq!(infer_mRNA("MA") % 1_000_000, 12)
+	assert_eq!(infer_mRNA("MA"), 12)
+}
+
+#[ignore]
+#[test]
+fn assert_actual_problem() {
+	let aminoacids = include_str!("_mrna_aminos");
+	assert_eq!(infer_mRNA(aminoacids), 768768)
 }
 
 // Problem MRNA - infer mRNA from amino acid sequence
-fn infer_mRNA(amino_acid_sequence: &str) -> usize{
+pub fn infer_mRNA(amino_acid_sequence: &str) -> u128 {
 	// We always assume a stop, so we can assume at least 3 possible mRNA to start with.
-	amino_acid_sequence.replace("Stop", ".").chars().fold(3, |current, c| current * mRNAs(&c))
+	amino_acid_sequence.replace("Stop", ".").chars().fold(3, |current, c| (current * mRNAs(&c)) % 1_000_000)
 }
 
-fn mRNAs(from_aa: &char) -> usize {
+fn mRNAs(from_aa: &char) -> u128 {
 	match from_aa {
 		'A' | 'a' => 4, // GCU, GCC, GCA, GCG
 		'C' | 'c' => 2, // UGU, UGC
